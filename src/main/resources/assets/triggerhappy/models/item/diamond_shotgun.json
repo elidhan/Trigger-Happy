@@ -1,0 +1,24 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "triggerhappy:item/diamond_shotgun"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -80, 260, -40 ],
+      "translation": [ -1, 1, -2 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -80, -280, 40 ],
+      "translation": [ -1, 1, -2 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 45 ],
+      "translation": [ 0, 2.5, 0]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, -90, 45 ],
+      "translation": [ 0, 2.5, 0]
+    }
+  }
+}

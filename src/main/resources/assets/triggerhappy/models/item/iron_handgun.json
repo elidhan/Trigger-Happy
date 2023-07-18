@@ -1,0 +1,28 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "triggerhappy:item/iron_handgun"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -80, 260, -40 ],
+      "translation": [ -1, 2, 0 ],
+      "scale": [ 0.75, 0.75, 0.75 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -80, -280, 40 ],
+      "translation": [ -1, 2, 0 ],
+      "scale": [ 0.75, 0.75, 0.75 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 45 ],
+      "translation": [ 0, 4, 0],
+      "scale": [ 0.68, 0.68, 0.68 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, -90, 45 ],
+      "translation": [ 0, 4, 0],
+      "scale": [ 0.68, 0.68, 0.68 ]
+    }
+  }
+}

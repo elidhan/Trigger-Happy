@@ -1,0 +1,6 @@
+{
+  "handgun": { "category": "master", "sounds": [ "triggerhappy:handgun" ] },
+  "shotgun": { "category": "master", "sounds": [ "triggerhappy:shotgun" ] },
+  "rifle": { "category": "master", "sounds": [ "triggerhappy:rifle" ] },
+  "lmg": { "category": "master", "sounds": [ "triggerhappy:lmg" ] }
+}

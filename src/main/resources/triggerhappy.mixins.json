@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.elidhan.triggerhappy.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "enchantment.EnchantmentHelperMixin"
+  ],
+  "client": [
+    "client.MinecraftClientMixin",
+    "client.PlayerEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
