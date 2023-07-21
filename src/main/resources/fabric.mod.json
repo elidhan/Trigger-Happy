@@ -23,11 +23,15 @@
     ],
     "client": [
       "net.elidhan.triggerhappy.TriggerHappyClient"
+    ],
+    "mm:early_risers": [
+      "net.elidhan.triggerhappy.asm.EarlyRiser"
     ]
   },
   "mixins": [
     "triggerhappy.mixins.json"
   ],
+  "accessWidener": "triggerhappy.accessWidener",
 
   "depends": {
     "fabricloader": ">=0.14.19",

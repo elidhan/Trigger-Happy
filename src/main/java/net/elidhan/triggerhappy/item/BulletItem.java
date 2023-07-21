@@ -19,9 +19,9 @@ public class BulletItem extends Item
         this.explosive = explosive;
     }
 
-    public BulletEntity createBullet(World world, ItemStack stack, float gunDamage, LivingEntity shooter)
+    public BulletEntity createBullet(World world, ItemStack stack, float gunDamage, float damageMult, LivingEntity shooter)
     {
-        BulletEntity bullet = new BulletEntity(shooter, world, this.damage+gunDamage, this.explosive, stack);
+        BulletEntity bullet = new BulletEntity(shooter, world, (this.damage+gunDamage)*damageMult, this.explosive, stack);
         bullet.setItem(stack);
         return bullet;
     }

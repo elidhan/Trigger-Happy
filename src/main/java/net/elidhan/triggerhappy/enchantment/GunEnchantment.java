@@ -1,19 +1,16 @@
 package net.elidhan.triggerhappy.enchantment;
 
+import net.elidhan.triggerhappy.TriggerHappy;
 import net.elidhan.triggerhappy.item.GunItem;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 
 public class GunEnchantment extends Enchantment
 {
-    private final int maxLevel;
-
-    protected GunEnchantment(int maxLevel, Rarity rarity)
+    protected GunEnchantment(Rarity rarity)
     {
-        super(rarity, EnchantmentTarget.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-        this.maxLevel = maxLevel;
+        super(rarity, TriggerHappy.GUN, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -31,7 +28,7 @@ public class GunEnchantment extends Enchantment
     @Override
     public int getMaxLevel()
     {
-        return maxLevel;
+        return 5;
     }
 
     @Override

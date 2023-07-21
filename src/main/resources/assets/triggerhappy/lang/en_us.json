@@ -2,14 +2,16 @@
   "item.triggerhappy.iron_handgun": "Iron Handgun",
   "item.triggerhappy.golden_handgun": "Golden Handgun",
   "item.triggerhappy.diamond_shotgun": "Diamond Shotgun",
-  "item.triggerhappy.diamond_rifle": "Diamond Rifle",
+  "item.triggerhappy.diamond_sniper_rifle": "Diamond Sniper Rifle",
   "item.triggerhappy.diamond_lmg": "Diamond LMG",
+  "item.triggerhappy.netherite_sniper_rifle": "Netherite Sniper Rifle",
 
   "item.triggerhappy.iron_bullet": "Iron Bullet",
   "item.triggerhappy.high_velocity_bullet": "High Velocity Bullet",
   "item.triggerhappy.explosive_bullet": "Explosive Bullet",
 
-  "enchantment.triggerhappy.stopping_power": "Stopping Power",
+  "enchantment.triggerhappy.lethal": "Lethal",
   "enchantment.triggerhappy.quickdraw": "Quickdraw",
-  "enchantment.triggerhappy.ammo_management": "Ammo Management"
+  "enchantment.triggerhappy.ammo_management": "Ammo Management",
+  "enchantment.triggerhappy.force_of_nature": "Force-A-Nature"
 }

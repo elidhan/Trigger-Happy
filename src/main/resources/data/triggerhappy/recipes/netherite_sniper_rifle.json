@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "triggerhappy:diamond_sniper_rifle"
+  },
+  "result": {
+    "item": "triggerhappy:netherite_sniper_rifle"
+  }
+}

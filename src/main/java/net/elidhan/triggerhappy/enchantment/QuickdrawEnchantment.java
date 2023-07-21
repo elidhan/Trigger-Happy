@@ -4,7 +4,7 @@ public class QuickdrawEnchantment extends GunEnchantment
 {
     protected QuickdrawEnchantment(Rarity rarity)
     {
-        super(1, rarity);
+        super(rarity);
     }
 
     @Override
@@ -17,5 +17,11 @@ public class QuickdrawEnchantment extends GunEnchantment
     public int getMaxPower(int level)
     {
         return 50;
+    }
+
+    @Override
+    public int getMaxLevel()
+    {
+        return 1;
     }
 }

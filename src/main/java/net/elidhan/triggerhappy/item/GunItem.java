@@ -21,10 +21,11 @@ public class GunItem extends RangedWeaponItem
     public final int cooldown;
     public final int shotCount;
     public final float spread;
+    public final float damageMult;
     public final ToolMaterial material;
     public final SoundEvent sound;
 
-    public GunItem(Settings settings, float damage, int cooldown, int shotCount, float spread, ToolMaterial material, SoundEvent sound)
+    public GunItem(Settings settings, float damage, int cooldown, int shotCount, float spread, float damageMult, ToolMaterial material, SoundEvent sound)
     {
         super(settings);
         this.random = new Random();
@@ -32,6 +33,7 @@ public class GunItem extends RangedWeaponItem
         this.cooldown = cooldown;
         this.shotCount = shotCount;
         this.spread = spread;
+        this.damageMult = damageMult;
         this.material = material;
         this.sound = sound;
     }
@@ -48,12 +50,14 @@ public class GunItem extends RangedWeaponItem
 
             BulletItem bulletItem = (BulletItem)(ammo.getItem() instanceof BulletItem ? ammo.getItem() : ModItems.IRON_BULLET);
 
-            int j, k;
             float extraDamage = this.damage;
             int totalCooldown = this.cooldown;
             float ammoPreserveChance = 0;
+            int forceOfNatureLevel = 0;
 
-            if((j = EnchantmentHelper.getLevel(ModEnchantments.STOPPING_POWER, gun)) > 0)
+            int j, k, l;
+
+            if((j = EnchantmentHelper.getLevel(ModEnchantments.LETHAL, gun)) > 0)
             {
                 extraDamage += 0.5f * j;
             }
@@ -65,13 +69,18 @@ public class GunItem extends RangedWeaponItem
             {
                 ammoPreserveChance = 0.11f * k;
             }
+            if((l = EnchantmentHelper.getLevel(ModEnchantments.FORCE_OF_NATURE, gun)) > 0)
+            {
+                forceOfNatureLevel = l;
+            }
 
             if(!world.isClient())
             {
                 for (int i = 0; i < shotCount; i++)
                 {
-                    BulletEntity bulletEntity = bulletItem.createBullet(world, ammo, extraDamage, user);
+                    BulletEntity bulletEntity = bulletItem.createBullet(world, ammo, extraDamage, this.damageMult, user);
                     bulletEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, ((BulletItem)ammo.getItem()).getSpeed(), this.spread);
+                    bulletEntity.setForceOfNature(forceOfNatureLevel);
 
                     world.spawnEntity(bulletEntity);
                 }
@@ -86,7 +95,8 @@ public class GunItem extends RangedWeaponItem
                         }
                     }
                 }
-                world.playSound(null, user.getX(), user.getY(), user.getZ(), this.sound, SoundCategory.MASTER, 0.85f, 1);
+                float pitch = 0.95f + world.getRandom().nextFloat() * (1.05f - 0.95f);
+                world.playSound(null, user.getX(), user.getY(), user.getZ(), this.sound, SoundCategory.MASTER, 0.85f, pitch);
             }
             user.getItemCooldownManager().set(this, totalCooldown);
         }

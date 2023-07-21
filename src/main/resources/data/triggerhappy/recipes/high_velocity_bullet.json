@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "triggerhappy:iron_bullet"
+    },
+    "#": {
+      "item": "minecraft:repeater"
+    }
+  },
+  "pattern": [
+    " i ",
+    "i#i",
+    " i "
+  ],
+  "result": {
+    "count": 4,
+    "item": "triggerhappy:high_velocity_bullet"
+  },
+  "show_notification": true
+}

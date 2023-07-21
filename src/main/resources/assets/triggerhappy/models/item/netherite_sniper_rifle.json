@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "triggerhappy:item/diamond_rifle"
+    "layer0": "triggerhappy:item/netherite_sniper_rifle"
   },
   "display": {
     "thirdperson_righthand": {

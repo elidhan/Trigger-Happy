@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "#": {
+      "item": "minecraft:gunpowder"
+    }
+  },
+  "pattern": [
+    " i ",
+    "i#i",
+    " i "
+  ],
+  "result": {
+    "count": 8,
+    "item": "triggerhappy:iron_bullet"
+  },
+  "show_notification": true
+}

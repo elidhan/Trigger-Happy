@@ -6,16 +6,20 @@ import net.elidhan.triggerhappy.item.ModItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.FlyingItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.BlockStateParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class BulletEntity extends PersistentProjectileEntity implements FlyingItemEntity
@@ -23,8 +27,9 @@ public class BulletEntity extends PersistentProjectileEntity implements FlyingIt
     private float damage;
     private int lifeTick;
     private boolean explosive;
-    private static final TrackedData<ItemStack> ITEM = DataTracker.registerData(BulletEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
     private int forceOfNature;
+    private static final TrackedData<ItemStack> ITEM = DataTracker.registerData(BulletEntity.class, TrackedDataHandlerRegistry.ITEM_STACK);
+
 
     public BulletEntity(EntityType<? extends BulletEntity> entityType, World world)
     {
@@ -59,36 +64,41 @@ public class BulletEntity extends PersistentProjectileEntity implements FlyingIt
     }
 
     @Override
-    protected void onCollision(HitResult hitResult)
-    {
-        super.onCollision(hitResult);
-    }
-
-    @Override
     protected void onEntityHit(EntityHitResult entityHitResult)
     {
         if(entityHitResult.getEntity() instanceof LivingEntity entity)
         {
             entity.damage(this.getDamageSources().arrow(this, this.getOwner() != null?this.getOwner():this), this.damage);
             entity.timeUntilRegen = 0;
+            if (this.forceOfNature > 0) {
+                double d = Math.max(0.0, 1.0 - entity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE));
+                Vec3d vec3d = this.getVelocity().multiply(1.0, 0.0, 1.0).normalize().multiply((double)this.forceOfNature * 0.3 * d);
+                if (vec3d.lengthSquared() > 0.0) {
+                    entity.addVelocity(vec3d.x, 0.1, vec3d.z);
+                }
+            }
             if(this.explosive)
             {
                 if (!this.world.isClient) {
-                    this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 3, false, World.ExplosionSourceType.NONE);
+                    this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, false, World.ExplosionSourceType.NONE);
                 }
             }
         }
         this.discard();
     }
 
+    public void setForceOfNature(int forceOfNature)
+    {
+        this.forceOfNature = forceOfNature;
+    }
+
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult)
     {
-        if(this.explosive)
+        if (!this.world.isClient)
         {
-            if (!this.world.isClient) {
-                this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 3, false, World.ExplosionSourceType.NONE);
-            }
+            ((ServerWorld)this.world).spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, world.getBlockState(blockHitResult.getBlockPos())), blockHitResult.getPos().getX(), blockHitResult.getPos().getY(), blockHitResult.getPos().getZ(), 5, 0.0, 0.0, 0.0, 0.5f);
+            if (this.explosive) this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, false, World.ExplosionSourceType.NONE);
         }
         this.discard();
     }
@@ -112,13 +122,13 @@ public class BulletEntity extends PersistentProjectileEntity implements FlyingIt
     @Override
     public boolean shouldRender(double distance)
     {
-        return this.getVelocity().length() <= 4;
+        return !this.getStack().isOf(ModItems.HIGH_VELOCITY_BULLET);
     }
 
     @Override
     public boolean shouldRender(double cameraX, double cameraY, double cameraZ)
     {
-        return this.getVelocity().length() <= 4;
+        return !this.getStack().isOf(ModItems.HIGH_VELOCITY_BULLET);
     }
 
     @Override

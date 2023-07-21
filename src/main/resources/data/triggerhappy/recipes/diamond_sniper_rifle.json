@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "t": {
+      "item": "minecraft:tripwire_hook"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "f": {
+      "item": "minecraft:flint_and_steel"
+    }
+  },
+  "pattern": [
+    "dg ",
+    "tdf",
+    " si"
+  ],
+  "result": {
+    "item": "triggerhappy:diamond_sniper_rifle"
+  },
+  "show_notification": true
+}

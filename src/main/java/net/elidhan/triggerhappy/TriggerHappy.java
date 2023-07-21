@@ -1,11 +1,13 @@
 package net.elidhan.triggerhappy;
 
+import com.chocohead.mm.api.ClassTinkerers;
 import net.elidhan.triggerhappy.enchantment.ModEnchantments;
 import net.elidhan.triggerhappy.entity.BulletEntity;
 import net.elidhan.triggerhappy.item.ModItems;
 import net.elidhan.triggerhappy.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -17,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 public class TriggerHappy implements ModInitializer {
 	public static final String MOD_ID = "triggerhappy";
+	public static final EnchantmentTarget GUN = ClassTinkerers.getEnum(EnchantmentTarget.class, "GUN");
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final EntityType<BulletEntity> BulletEntityType = Registry.register(
 			Registries.ENTITY_TYPE,
