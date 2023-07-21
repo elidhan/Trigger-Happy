@@ -31,7 +31,7 @@
   "mixins": [
     "triggerhappy.mixins.json"
   ],
-  "accessWidener": "triggerhappy.accessWidener",
+  "accessWidener": "triggerhappy.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.14.19",
