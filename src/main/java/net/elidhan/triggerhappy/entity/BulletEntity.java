@@ -79,8 +79,8 @@ public class BulletEntity extends PersistentProjectileEntity implements FlyingIt
             }
             if(this.explosive)
             {
-                if (!this.world.isClient) {
-                    this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, false, World.ExplosionSourceType.NONE);
+                if (!this.getEntityWorld().isClient) {
+                    this.getEntityWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, false, World.ExplosionSourceType.NONE);
                 }
             }
         }
@@ -95,10 +95,10 @@ public class BulletEntity extends PersistentProjectileEntity implements FlyingIt
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult)
     {
-        if (!this.world.isClient)
+        if (!this.getEntityWorld().isClient)
         {
-            ((ServerWorld)this.world).spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, world.getBlockState(blockHitResult.getBlockPos())), blockHitResult.getPos().getX(), blockHitResult.getPos().getY(), blockHitResult.getPos().getZ(), 5, 0.0, 0.0, 0.0, 0.5f);
-            if (this.explosive) this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, false, World.ExplosionSourceType.NONE);
+            ((ServerWorld)this.getEntityWorld()).spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, this.getEntityWorld().getBlockState(blockHitResult.getBlockPos())), blockHitResult.getPos().getX(), blockHitResult.getPos().getY(), blockHitResult.getPos().getZ(), 5, 0.0, 0.0, 0.0, 0.5f);
+            if (this.explosive) this.getEntityWorld().createExplosion(this, this.getX(), this.getY(), this.getZ(), 2.5f, false, World.ExplosionSourceType.NONE);
         }
         this.discard();
     }

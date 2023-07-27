@@ -1,7 +1,6 @@
 package net.elidhan.triggerhappy.client.render.projectile;
 
 import net.elidhan.triggerhappy.entity.BulletEntity;
-import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderer;
@@ -44,7 +43,7 @@ extends EntityRenderer<T>
         matrices.scale(this.scale, this.scale, this.scale);
         matrices.multiply(this.dispatcher.getRotation());
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0f));
-        this.itemRenderer.renderItem(((BulletEntity)entity).getStack(), ModelTransformationMode.GROUND, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.world, entity.getId());
+        this.itemRenderer.renderItem(((BulletEntity)entity).getStack(), ModelTransformationMode.GROUND, light, OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getEntityWorld(), entity.getId());
         matrices.pop();
         super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light);
     }
