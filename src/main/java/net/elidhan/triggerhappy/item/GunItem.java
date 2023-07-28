@@ -24,8 +24,9 @@ public class GunItem extends RangedWeaponItem
     public final float damageMult;
     public final ToolMaterial material;
     public final SoundEvent sound;
+    public final boolean oneHanded;
 
-    public GunItem(Settings settings, float damage, int cooldown, int shotCount, float spread, float damageMult, ToolMaterial material, SoundEvent sound)
+    public GunItem(Settings settings, float damage, int cooldown, int shotCount, float spread, float damageMult, ToolMaterial material, SoundEvent sound, boolean oneHanded)
     {
         super(settings);
         this.random = new Random();
@@ -36,6 +37,7 @@ public class GunItem extends RangedWeaponItem
         this.damageMult = damageMult;
         this.material = material;
         this.sound = sound;
+        this.oneHanded = oneHanded;
     }
 
     @Override
