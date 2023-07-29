@@ -7,6 +7,7 @@ import net.elidhan.triggerhappy.item.ModItems;
 import net.elidhan.triggerhappy.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -20,6 +21,8 @@ import org.slf4j.LoggerFactory;
 public class TriggerHappy implements ModInitializer {
 	public static final String MOD_ID = "triggerhappy";
 	public static final EnchantmentTarget GUN = ClassTinkerers.getEnum(EnchantmentTarget.class, "GUN");
+	public static final BipedEntityModel.ArmPose ONE_HANDED_GUN = ClassTinkerers.getEnum(BipedEntityModel.ArmPose.class, "ONE_HANDED_GUN");
+	public static final BipedEntityModel.ArmPose TWO_HANDED_GUN = ClassTinkerers.getEnum(BipedEntityModel.ArmPose.class, "TWO_HANDED_GUN");
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final EntityType<BulletEntity> BulletEntityType = Registry.register(
 			Registries.ENTITY_TYPE,

@@ -12,5 +12,11 @@ public class EarlyRiser implements Runnable
         MappingResolver remapper = FabricLoader.getInstance().getMappingResolver();
         String enchantTargetClass = remapper.mapClassName("intermediary", "net.minecraft.class_1886");
         ClassTinkerers.enumBuilder(enchantTargetClass, new Class[0]).addEnumSubclass("GUN", "net.elidhan.triggerhappy.enchantment.GunEnchantmentTarget").build();
+
+        String armPoseClass = remapper.mapClassName("intermediary", "net.minecraft.class_572$class_573");
+        ClassTinkerers.enumBuilder(armPoseClass, boolean.class)
+                .addEnum("ONE_HANDED_GUN", false)
+                .addEnum("TWO_HANDED_GUN", true)
+                .build();
     }
 }

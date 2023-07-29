@@ -20,7 +20,8 @@ public class ModItems
             1,
             1,
             ToolMaterials.IRON,
-            ModSounds.HANDGUN));
+            ModSounds.HANDGUN,
+            true));
     public static final Item GOLDEN_HANDGUN = registerItem("golden_handgun", new GunItem(new FabricItemSettings().maxDamage(256),
             4,
             12,
@@ -28,7 +29,8 @@ public class ModItems
             0.5f,
             1,
             ToolMaterials.IRON,
-            ModSounds.HANDGUN));
+            ModSounds.HANDGUN,
+            true));
     public static final Item DIAMOND_SNIPER_RIFLE = registerItem("diamond_sniper_rifle", new GunItem(new FabricItemSettings().maxDamage(1024),
             8,
             24,
@@ -36,7 +38,8 @@ public class ModItems
             0.125f,
             1.35f,
             ToolMaterials.DIAMOND,
-            ModSounds.RIFLE));
+            ModSounds.RIFLE,
+            false));
     public static final Item DIAMOND_SHOTGUN = registerItem("diamond_shotgun", new GunItem(new FabricItemSettings().maxDamage(1024),
             0.5f,
             24,
@@ -44,7 +47,8 @@ public class ModItems
             7.5f,
             1,
             ToolMaterials.DIAMOND,
-            ModSounds.SHOTGUN));
+            ModSounds.SHOTGUN,
+            false));
     public static final Item DIAMOND_LMG = registerItem("diamond_lmg", new GunItem(new FabricItemSettings().maxDamage(1024),
             4,
             4,
@@ -52,7 +56,8 @@ public class ModItems
             2,
             1,
             ToolMaterials.DIAMOND,
-            ModSounds.LMG));
+            ModSounds.LMG,
+            false));
     public static final Item NETHERITE_SNIPER_RIFLE = registerItem("netherite_sniper_rifle", new GunItem(new FabricItemSettings().maxDamage(2048),
             8,
             20,
@@ -60,7 +65,8 @@ public class ModItems
             0,
             1.8f,
             ToolMaterials.NETHERITE,
-            ModSounds.RIFLE));
+            ModSounds.RIFLE,
+            false));
     public static final Item IRON_BULLET = registerItem("iron_bullet", new BulletItem(new FabricItemSettings().maxCount(64),
             1.5f,
             4,

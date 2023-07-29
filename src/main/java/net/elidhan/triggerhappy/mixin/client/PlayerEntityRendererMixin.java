@@ -1,5 +1,6 @@
 package net.elidhan.triggerhappy.mixin.client;
 
+import net.elidhan.triggerhappy.TriggerHappy;
 import net.elidhan.triggerhappy.item.GunItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -21,8 +22,8 @@ public class PlayerEntityRendererMixin
     private static void gunPose(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> ci)
     {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.getItem() instanceof GunItem) {
-            ci.setReturnValue(BipedEntityModel.ArmPose.BOW_AND_ARROW);
+        if (itemStack.getItem() instanceof GunItem gunItem) {
+            ci.setReturnValue(gunItem.oneHanded ? TriggerHappy.ONE_HANDED_GUN:TriggerHappy.TWO_HANDED_GUN);
         }
     }
 }

@@ -7,6 +7,7 @@
     "enchantment.EnchantmentTargetMixin"
   ],
   "client": [
+    "client.BipedEntityModelMixin",
     "client.MinecraftClientMixin",
     "client.PlayerEntityRendererMixin"
   ],
