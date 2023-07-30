@@ -3,17 +3,16 @@
   "id": "triggerhappy",
   "version": "${version}",
 
-  "name": "",
+  "name": "Trigger-Happy",
   "description": "A simple gun mod inspired by the likes of Guns 'Without Roses'",
   "authors": [
     "Elidhan"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "sources": "https://github.com/elidhan/Trigger-Happy"
   },
 
-  "license": "CC0-1.0",
+  "license": "CC0-4.0",
   "icon": "assets/triggerhappy/icon.png",
 
   "environment": "*",
