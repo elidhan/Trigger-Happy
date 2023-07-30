@@ -38,7 +38,7 @@ public class BipedEntityModelMixin<T extends LivingEntity>
         {
             this.rightArm.pitch = this.head.pitch - 1.5707964f;
             this.rightArm.yaw = this.head.yaw;
-            this.leftArm.yaw = 0.0f;
+            //this.leftArm.yaw = 0.0f;
             ci.cancel();
         }
         if(this.rightArmPose == TriggerHappy.TWO_HANDED_GUN)
@@ -58,7 +58,7 @@ public class BipedEntityModelMixin<T extends LivingEntity>
         {
             this.leftArm.pitch = this.head.pitch - 1.5707964f;
             this.leftArm.yaw = this.head.yaw;
-            this.rightArm.yaw = 0.0f;
+            //this.rightArm.yaw = 0.0f;
             ci.cancel();
         }
         if(this.leftArmPose == TriggerHappy.TWO_HANDED_GUN)
