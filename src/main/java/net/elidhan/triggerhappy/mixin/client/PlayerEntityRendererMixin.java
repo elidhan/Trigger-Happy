@@ -1,6 +1,6 @@
 package net.elidhan.triggerhappy.mixin.client;
 
-import net.elidhan.triggerhappy.TriggerHappy;
+import net.elidhan.triggerhappy.TriggerHappyClient;
 import net.elidhan.triggerhappy.item.GunItem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -23,7 +23,7 @@ public class PlayerEntityRendererMixin
     {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.getItem() instanceof GunItem gunItem) {
-            ci.setReturnValue(gunItem.oneHanded ? TriggerHappy.ONE_HANDED_GUN:TriggerHappy.TWO_HANDED_GUN);
+            ci.setReturnValue(gunItem.oneHanded ? TriggerHappyClient.ONE_HANDED_GUN:TriggerHappyClient.TWO_HANDED_GUN);
         }
     }
 }

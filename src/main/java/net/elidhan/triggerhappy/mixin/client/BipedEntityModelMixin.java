@@ -1,6 +1,6 @@
 package net.elidhan.triggerhappy.mixin.client;
 
-import net.elidhan.triggerhappy.TriggerHappy;
+import net.elidhan.triggerhappy.TriggerHappyClient;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.LivingEntity;
@@ -34,14 +34,14 @@ public class BipedEntityModelMixin<T extends LivingEntity>
     @Inject(method = "positionRightArm", at = @At("HEAD"), cancellable = true)
     public void gunRightArm(T entity, CallbackInfo ci)
     {
-        if(this.rightArmPose == TriggerHappy.ONE_HANDED_GUN)
+        if(this.rightArmPose == TriggerHappyClient.ONE_HANDED_GUN)
         {
             this.rightArm.pitch = this.head.pitch - 1.5707964f;
             this.rightArm.yaw = this.head.yaw;
             //this.leftArm.yaw = 0.0f;
             ci.cancel();
         }
-        if(this.rightArmPose == TriggerHappy.TWO_HANDED_GUN)
+        if(this.rightArmPose == TriggerHappyClient.TWO_HANDED_GUN)
         {
             this.rightArm.pitch = this.head.pitch - 1.5707964f;
             this.leftArm.pitch = this.head.pitch - 1.5707964f;
@@ -54,14 +54,14 @@ public class BipedEntityModelMixin<T extends LivingEntity>
     @Inject(method = "positionLeftArm", at = @At("HEAD"), cancellable = true)
     public void gunLeftArm(T entity, CallbackInfo ci)
     {
-        if(this.leftArmPose == TriggerHappy.ONE_HANDED_GUN)
+        if(this.leftArmPose == TriggerHappyClient.ONE_HANDED_GUN)
         {
             this.leftArm.pitch = this.head.pitch - 1.5707964f;
             this.leftArm.yaw = this.head.yaw;
             //this.rightArm.yaw = 0.0f;
             ci.cancel();
         }
-        if(this.leftArmPose == TriggerHappy.TWO_HANDED_GUN)
+        if(this.leftArmPose == TriggerHappyClient.TWO_HANDED_GUN)
         {
             this.leftArm.pitch = this.head.pitch - 1.5707964f;
             this.rightArm.pitch = this.head.pitch - 1.5707964f;
